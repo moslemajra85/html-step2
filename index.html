@@ -12,14 +12,215 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>Document</title>
+    <!-- import google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>My University - Game Style</title>
 
     <style>
-      .navbar,
-      .showcases,
-      .contact,
+      /* Basic Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Press Start 2P', cursive;
+        background-color: #0d0d0d;
+        color: #fff;
+        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+        overflow-x: hidden;
+      }
+
+      /* Navbar */
+      .navbar {
+        background: #1a1a1a;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 3px solid #00ffff;
+        box-shadow: 0 0 15px #00ffff;
+      }
+
+      .navbar h1 {
+        font-size: 1.2rem;
+        margin-left: 0.5rem;
+        color: #ff00ff;
+        text-shadow: 0 0 5px #ff00ff;
+      }
+
+      .navbar .fa-building-columns {
+        font-size: 1.5rem;
+        color: #ff00ff;
+        text-shadow: 0 0 5px #ff00ff;
+      }
+
+      .navbar a {
+        color: #00ffff;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+      }
+
+      .navbar a:hover {
+        color: #ff00ff;
+        text-shadow: 0 0 5px #ff00ff;
+        border-color: #ff00ff;
+      }
+
+      /* Showcases -> Cards */
+      .showcases {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 2rem;
+        gap: 2rem;
+      }
+
+      .showcases div {
+        background: #1a1a1a;
+        width: 320px;
+        padding: 1.5rem;
+        border: 3px solid #00ffff;
+        box-shadow: 0 0 20px #00ffff;
+        transition: all 0.3s ease;
+        animation: pulse 2s infinite;
+        text-align: center;
+      }
+
+      .showcases div:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 30px #ff00ff;
+        border-color: #ff00ff;
+      }
+
+      .showcases img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-bottom: 3px solid #00ffff;
+        margin-bottom: 1rem;
+      }
+
+      .showcases p {
+        font-size: 0.8rem;
+        color: #ccc;
+        line-height: 1.5;
+      }
+
+      /* Contact Form */
+      .contact {
+        padding: 2rem;
+        background-color: #1a1a1a;
+        margin: 2rem auto;
+        max-width: 600px;
+        border: 3px solid #ff00ff;
+        box-shadow: 0 0 20px #ff00ff;
+      }
+
+      .contact h2 {
+        color: #ff00ff;
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .contact label {
+        margin-bottom: 0.5rem;
+        color: #00ffff;
+      }
+
+      .contact input,
+      .contact textarea {
+        padding: 0.8rem;
+        margin-bottom: 1rem;
+        border: 2px solid #00ffff;
+        background-color: #0d0d0d;
+        color: #fff;
+        font-family: 'Press Start 2P', cursive;
+        font-size: 0.8rem;
+      }
+
+      .contact input:focus,
+      .contact textarea:focus {
+        outline: none;
+        border-color: #ff00ff;
+        box-shadow: 0 0 10px #ff00ff;
+      }
+
+      .contact button {
+        background: transparent;
+        color: #00ffff;
+        border: 2px solid #00ffff;
+        padding: 0.8rem 1.5rem;
+        cursor: pointer;
+        font-family: 'Press Start 2P', cursive;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        align-self: center;
+      }
+
+      .contact button:hover {
+        background: #00ffff;
+        color: #0d0d0d;
+        box-shadow: 0 0 20px #00ffff;
+        text-shadow: none;
+      }
+
+      /* Footer */
       .footer {
-        border: 2px solid blue;
+        background: #1a1a1a;
+        color: #ccc;
+        text-align: center;
+        padding: 1.5rem;
+        margin-top: 2rem;
+        border-top: 3px solid #00ffff;
+        font-size: 0.8rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .spinning-icon {
+        font-size: 2rem;
+        color: #ffdd00;
+        text-shadow: 0 0 10px #ffdd00;
+        margin-bottom: 1rem;
+        animation: spin 2s linear infinite;
+      }
+
+      /* Animation */
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 15px #00ffff;
+        }
+        50% {
+          box-shadow: 0 0 25px #00ffff;
+        }
+        100% {
+          box-shadow: 0 0 15px #00ffff;
+        }
+      }
+
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
       }
     </style>
   </head>
@@ -29,35 +230,44 @@
       <i class="fa-solid fa-building-columns"></i>
       <h1>My University</h1>
 
-      <a href="https://www.google.com/" target="_blank"> Google</a>
-      <a href="about.html">About</a>
-      <a href="service.html">Services</a>
+      <div>
+        <a href="https://www.google.com/" target="_blank">
+          <i class="fa-brands fa-google"></i> Google</a
+        >
+        <a href="about.html">About</a>
+        <a href="service.html">Services</a>
+      </div>
     </div>
 
     <!-- showcases -->
     <div class="showcases">
       <div>
-        <img src="https://picsum.photos/200/300" alt="" />
+        <img
+          src="https://picsum.photos/seed/picsum/300/200"
+          alt="Random image"
+        />
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, facere?
         </p>
       </div>
       <div>
-        <img src="https://picsum.photos/200/300" alt="" />
+        <img
+          src="https://picsum.photos/seed/student/300/200"
+          alt="Random image"
+        />
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis
-          dolores, natus esse, consectetur ab maxime aliquam quas doloremque
-          ducimus vel mollitia enim voluptates? Inventore voluptatibus animi
-          tempora, blanditiis dicta facere?
+          dolores, natus esse, consectetur ab maxime aliquam quas doloremque.
         </p>
       </div>
       <div>
-        <img src="https://picsum.photos/200/300" alt="" />
+        <img
+          src="https://picsum.photos/seed/learn/300/200"
+          alt="Random image"
+        />
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos dolorem
-          fuga voluptatum quia recusandae, iure minima debitis, delectus
-          voluptas a eius consequatur ab natus sunt aliquam assumenda. Maiores,
-          pariatur sapiente?
+          fuga voluptatum quia recusandae, iure minima debitis.
         </p>
       </div>
     </div>
@@ -65,17 +275,23 @@
     <!-- Contact -->
     <div class="contact">
       <form>
+        <h2>Contact Us</h2>
         <!-- Name Input -->
-        <label for="">Name</label>
-        <input type="text" placeholder="Type your name"/>
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Type your name" />
 
         <!-- Email Input -->
-        <label for="">Email</label>
-        <input type="email"  placeholder="Type your email"/>
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="Type your email" />
 
         <!-- textarea -->
-        <label for="">Message</label>
-        <textarea name="" id="" cols="20" rows="20" placeholder="Write a message"></textarea>
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          cols="30"
+          rows="10"
+          placeholder="Write a message"
+        ></textarea>
 
         <!-- Submit button -->
         <button type="submit">Submit</button>
@@ -84,7 +300,8 @@
 
     <!-- Footer -->
     <div class="footer">
-        <p>All Rights reserverse &copy 2030;</p>
+      <i class="fa-solid fa-coins spinning-icon"></i>
+      <p>All Rights reserved &copy; 2030</p>
     </div>
   </body>
 </html>
